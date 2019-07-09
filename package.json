@@ -3,7 +3,7 @@
   "productName": "Habbo Client",
   "settings": {
     "hotelName": "Habbo",
-    "url": "https://holohotel.ca",
+    "url": "https://habbo.com",
     "useFrame": true,
     "backgroundColor": "#ccc",
     "hideMenu": false
@@ -27,21 +27,27 @@
       "packagerConfig": {
         "icon": "src/icon.icns"
       },
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip",
-          "dmg"
-        ],
-        "linux": [
-          "deb",
-          "rpm",
-          "flatpak",
-          "snap"
-        ]
-      }
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
     }
   },
   "dependencies": {
